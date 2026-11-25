@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Blood Stock</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 450px;
+            margin: 80px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px lightgray;
+        }
+
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 25px;
+        }
+
+        label{
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+        }
+
+        .btn{
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover{
+            background-color: red;
+        }
+
+        .back-btn{
+
+            position: absolute;
+            top: 20px;
+            left: 20px;
+
+            padding: 10px 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        .back-btn:hover{
+            background-color: red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<a href="/manage_stock">
+    <button class="back-btn">
+        Back
+    </button>
+</a>
+
+<div class="container">
+
+    <h2>Update Blood Stock</h2>
+
+    <form method="POST">
+
+        <label>Blood Group</label>
+
+        <input
+            type="text"
+            name="blood_group"
+            value="{{ stock[3] }}"
+            readonly>
+
+        <label>Available Units</label>
+
+        <input
+            type="number"
+            name="unit"
+            value="{{ stock[2] }}"
+            required>
+
+        <input
+            type="submit"
+            value="Update Stock"
+            class="btn">
+
+    </form>
+
+</div>
+
+</body>
+</html>

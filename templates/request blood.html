@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Blood</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #f4f4f4;
+        }
+
+        .container{
+            width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px lightgray;
+        }
+
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 20px;
+        }
+
+        .donor-details{
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid lightgray;
+        }
+
+        label{
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+        }
+
+        .btn{
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover{
+            background-color: red;
+        }
+         .home-btn{
+
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    padding:10px 20px;
+    background-color:darkred;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Blood Request Form</h2>
+     <a href="/recipient">
+    <button class="home-btn">Back Home</button>
+</a>
+
+
+    <!-- Selected Donor Details -->
+
+    <div class="donor-details">
+
+        <h3>Selected Donor</h3>
+
+        <p><b>Name :</b> {{ ob[1] }}</p>
+        <p><b>Blood Group :</b>{{ ob[6] }} </p>
+        <p><b>Place :</b>{{ ob[2] }}</p>
+        <p><b>Mobile :</b>{{ ob[4] }} </p>
+
+    </div>
+
+
+    <!-- Blood Request Form -->
+
+    <form method="post">
+
+        <label>Patient Name</label>
+        <input type="text" name="patient_name" required>
+
+
+        <label>Blood Group Required</label>
+        <input type="text" name="blood_group" required>
+
+
+        <label>Place</label>
+        <input type="text" name="place" required>
+
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" required>
+
+
+        <input type="submit"
+               value="Send Request"
+               class="btn">
+
+    </form>
+
+</div>
+
+</body>
+</html>

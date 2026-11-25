@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Bank Administrator Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+
+/*-------------------- NAVBAR --------------------*/
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    background-color:darkred;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+}
+
+.logout-btn{
+    text-decoration:none;
+    color:white;
+    padding:10px 20px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.logout-btn:hover{
+    background-color:white;
+    color:darkred;
+}
+
+
+/*-------------------- BANNER --------------------*/
+
+.banner{
+
+    width:90%;
+    margin:40px auto;
+    padding:60px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#8B0000,#DC143C);
+    color:white;
+    text-align:center;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.1);
+
+}
+
+.banner h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.banner p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+
+/*-------------------- STATISTICS --------------------*/
+
+.stats{
+
+    width:90%;
+    margin:50px auto;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+
+}
+
+.stat-card{
+
+    width:260px;
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-card h2{
+    color:darkred;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:#666;
+}
+
+
+
+/**************** ADMIN SERVICES ****************/
+
+.services{
+
+    width:90%;
+    margin:50px auto;
+
+}
+
+.services h2{
+
+    text-align:center;
+    color:darkred;
+    font-size:38px;
+    margin-bottom:40px;
+
+}
+
+
+.service-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+
+}
+
+
+.service-card{
+
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+
+}
+
+
+.service-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+.service-card h3{
+
+    color:darkred;
+    margin-bottom:15px;
+    font-size:25px;
+
+}
+
+
+.service-card p{
+
+    color:#666;
+    line-height:1.8;
+    margin-bottom:25px;
+
+}
+
+
+.service-card button{
+
+    padding:12px 25px;
+    background-color:darkred;
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+
+}
+
+
+.service-card button:hover{
+
+    background-color:red;
+
+}
+
+/*-------------------- BUTTON --------------------*/
+
+.btn{
+
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    background-color:darkred;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:15px;
+
+}
+
+.btn:hover{
+
+    background-color:red;
+
+}
+
+
+/*-------------------- FOOTER --------------------*/
+
+footer{
+
+    margin-top:60px;
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+
+}
+
+
+/*-------------------- RESPONSIVE --------------------*/
+
+@media(max-width:768px){
+
+    .banner h1{
+        font-size:35px;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+    Blood Bank Admin
+</div>
+
+<a href="/home" class="logout-btn">
+    Logout
+</a>
+
+</nav>
+
+
+
+<!-- WELCOME BANNER -->
+
+<section class="banner">
+
+<h1>Welcome Administrator</h1>
+
+<p>
+Manage blood stock, monitor blood requests and send important
+notifications efficiently through the Blood Bank Management System.
+Your role plays a vital part in ensuring blood availability and
+saving lives.
+</p>
+
+</section>
+
+
+
+<!-- STATISTICS CARDS -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h2>24/7</h2>
+<p>Blood Bank Monitoring</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<h2>100%</h2>
+<p>Secure Management</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<h2>3</h2>
+<p>Administrator Services</p>
+
+</div>
+
+</section>
+
+
+
+<!-- MANAGEMENT PANEL -->
+<!-- ADMIN SERVICES -->
+
+<section class="services">
+
+    <h2>Administrator Services</h2>
+
+    <div class="service-container">
+
+
+        <!-- Manage Blood Stock -->
+
+        <div class="service-card">
+
+            <h3>Manage Blood Stock</h3>
+
+            <p>
+                Add and update blood availability and units.
+            </p>
+
+            <a href="/manage_stock">
+
+                <button>
+                    Open Module
+                </button>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- View Blood Requests -->
+
+        <div class="service-card">
+
+            <h3>View Blood Requests</h3>
+
+            <p>
+                Monitor all blood requests submitted by recipients.
+            </p>
+
+            <a href="/admin_view_requests">
+
+                <button>
+                    Open Module
+                </button>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Post Notifications -->
+
+        <div class="service-card">
+
+            <h3>Post Notifications</h3>
+
+            <p>
+                Send important announcements and updates to donors.
+            </p>
+
+            <a href="/post_notification">
+
+                <button>
+                    Open Module
+                </button>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+Blood Bank Management System © 2026 | Administrator Panel
+</p>
+
+</footer>
+
+</body>
+</html>
+

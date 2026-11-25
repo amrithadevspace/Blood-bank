@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Track Blood Requests</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            margin: 0;
+            min-height: 100vh;
+            background: #f5f6f8;
+            color: #333;
+        }
+
+
+        /* BACK HOME BUTTON */
+
+        .home-btn{
+            position: fixed;
+            top: 25px;
+            left: 25px;
+
+            padding: 11px 20px;
+
+            background-color: darkred;
+            color: white;
+
+            border: none;
+            border-radius: 7px;
+
+            font-size: 14px;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .home-btn:hover{
+            background-color: #9d0000;
+            transform: translateY(-2px);
+        }
+
+
+        /* MAIN CONTAINER */
+
+        .container{
+            width: 92%;
+            max-width: 1200px;
+
+            margin: 80px auto 40px;
+
+            background-color: white;
+
+            padding: 35px;
+
+            border-radius: 14px;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+
+        /* HEADING */
+
+        .heading{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h2{
+            margin: 0;
+
+            color: darkred;
+
+            font-size: 28px;
+        }
+
+        .heading p{
+            margin-top: 8px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        /* FILTER */
+
+        .filter-section{
+            display: flex;
+
+            justify-content: flex-end;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .filter-section label{
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-right: 10px;
+
+            color: #444;
+        }
+
+        .filter-section select{
+
+            padding: 10px 35px 10px 12px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 7px;
+
+            background-color: white;
+
+            font-size: 14px;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .filter-section select:focus{
+
+            border-color: darkred;
+
+            box-shadow: 0 0 0 2px rgba(139,0,0,0.08);
+        }
+
+
+        /* TABLE */
+
+        .table-wrapper{
+
+            width: 100%;
+
+            overflow-x: auto;
+
+            border-radius: 8px;
+        }
+
+        table{
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 750px;
+        }
+
+        th{
+
+            background-color: darkred;
+
+            color: white;
+
+            padding: 14px 12px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            text-align: center;
+        }
+
+        td{
+
+            padding: 14px 12px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr{
+
+            transition: 0.2s;
+        }
+
+        tbody tr:hover{
+
+            background-color: #fff7f7;
+        }
+
+
+        /* STATUS */
+
+        .status{
+
+            font-weight: bold;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            display: inline-block;
+        }
+
+        .status.accepted{
+
+            color: #15803d;
+
+            background-color: #dcfce7;
+        }
+
+        .status.rejected{
+
+            color: #dc2626;
+
+            background-color: #fee2e2;
+        }
+
+        .status.pending{
+
+            color: #d97706;
+
+            background-color: #fef3c7;
+        }
+
+
+        /* NO RESULT */
+
+        #noResult{
+
+            display: none;
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width:700px){
+
+            .container{
+
+                width: 95%;
+
+                padding: 20px;
+
+                margin-top: 75px;
+            }
+
+            .heading h2{
+
+                font-size: 23px;
+            }
+
+            .filter-section{
+
+                justify-content: flex-start;
+            }
+
+            .home-btn{
+
+                top: 15px;
+
+                left: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACK HOME -->
+
+<a href="/recipient">
+
+    <button class="home-btn">
+        Back Home
+    </button>
+
+</a>
+
+
+<!-- MAIN CONTAINER -->
+
+<div class="container">
+
+
+    <!-- HEADING -->
+
+    <div class="heading">
+
+        <h2>
+            Track Blood Requests
+        </h2>
+
+        <p>
+            View and track the current status of your blood requests
+        </p>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="filter-section">
+
+        <label for="statusFilter">
+            Filter Status:
+        </label>
+
+        <select id="statusFilter" onchange="filterStatus()">
+
+            <option value="all">
+                All Requests
+            </option>
+
+            <option value="accepted">
+                Accepted
+            </option>
+
+            <option value="rejected">
+                Rejected
+            </option>
+
+            <option value="pending">
+                Pending
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <div class="table-wrapper">
+
+        <table id="requestTable">
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Patient Name
+                    </th>
+
+                    <th>
+                        Donor Name
+                    </th>
+
+                    <th>
+                        Blood Group
+                    </th>
+
+                    <th>
+                        Place
+                    </th>
+
+                    <th>
+                        Phone Number
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+               {% for request in ob %}
+
+<tr>
+
+    <td>{{ request[0] }}</td>
+
+    <td>{{ request[1] }}</td>
+
+    <td>{{ request[2] }}</td>
+
+    <td>{{ request[3] }}</td>
+
+    <td>{{ request[4] }}</td>
+
+    <td class="status {{ request[5]|lower }}">
+        {{ request[5] }}
+    </td>
+
+</tr>
+
+{% endfor %}
+
+            </tbody>
+
+
+        </table>
+
+
+        <div id="noResult">
+
+            No requests found for the selected status.
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function filterStatus(){
+
+    var selectedStatus =
+        document.getElementById("statusFilter")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    var rows =
+        document.querySelectorAll(
+            "#requestTable tbody tr"
+        );
+
+
+    var visibleRows = 0;
+
+
+    for(var i = 0; i < rows.length; i++){
+
+
+        /* Get status from last column */
+
+        var status =
+            rows[i]
+            .cells[5]
+            .innerText
+            .trim()
+            .toLowerCase();
+
+
+        /* Check selected status */
+
+        if(
+            selectedStatus === "all" ||
+            status === selectedStatus
+        ){
+
+            rows[i].style.display = "";
+
+            visibleRows++;
+
+        }
+
+        else{
+
+            rows[i].style.display = "none";
+
+        }
+
+    }
+
+
+    /* No result message */
+
+    var noResult =
+        document.getElementById("noResult");
+
+
+    if(visibleRows === 0){
+
+        noResult.style.display = "block";
+
+    }
+
+    else{
+
+        noResult.style.display = "none";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

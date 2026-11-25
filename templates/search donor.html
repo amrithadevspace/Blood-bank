@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Blood Donor</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #f4f4f4;
+        }
+
+        .container{
+            width: 85%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px lightgray;
+        }
+
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 30px;
+        }
+
+        label{
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,select{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .search-btn{
+            width: 100%;
+            padding: 12px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover{
+            background-color: red;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        th{
+            background-color: darkred;
+            color: white;
+            padding: 12px;
+        }
+
+        td{
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .request-btn{
+            padding: 8px 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .request-btn:hover{
+            background-color: darkgreen;
+        }
+
+        a{
+            text-decoration: none;
+        }
+         .home-btn{
+
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    padding:10px 20px;
+    background-color:darkred;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Search Blood Donor</h2>
+     <a href="/recipient">
+    <button class="home-btn">Back Home</button>
+</a>
+
+
+    <!-- Search Form -->
+
+    <form method="post">
+
+        <label>Blood Group</label>
+
+        <select name="blood_group" required>
+            <option value="">Select Blood Group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
+
+
+
+
+
+        <input type="submit"
+               value="Search"
+               class="search-btn">
+
+    </form>
+
+
+    <!-- Search Result -->
+
+    {% if ob %}
+
+    <table>
+
+        <tr>
+            <th>Donor Name</th>
+            <th>Blood Group</th>
+            <th>Place</th>
+            <th>Mobile Number</th>
+            <th>Action</th>
+        </tr>
+
+
+        {% for donor in ob %}
+
+        <tr>
+
+            <td>{{donor[1]}}</td>
+
+            <td>{{donor[5]}}</td>
+
+            <td>{{donor[2]}}</td>
+
+            <td>{{donor[4]}}</td>
+
+            <td>
+
+                <a href="/request_blood/{{ donor[0] }}">
+                    <button type="button"
+                            class="request-btn">
+                        Request
+                    </button>
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

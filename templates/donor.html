@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donor Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f6fa;
+}
+
+/*------------------ Navbar ------------------*/
+
+nav{
+
+    width:100%;
+    padding:20px 8%;
+    background:darkred;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+
+}
+
+.logo{
+
+    font-size:28px;
+    font-weight:700;
+
+}
+
+nav a{
+
+    text-decoration:none;
+    color:white;
+    margin-left:20px;
+    font-weight:500;
+
+}
+
+nav a:hover{
+
+    color:#ffd6d6;
+
+}
+
+
+/*------------------ Banner ------------------*/
+
+.banner{
+
+    width:90%;
+    margin:40px auto;
+    padding:60px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#8B0000,#DC143C);
+    color:white;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.1);
+
+}
+
+.banner h1{
+
+    font-size:48px;
+    margin-bottom:15px;
+
+}
+
+.banner p{
+
+    font-size:18px;
+    line-height:1.8;
+
+}
+
+
+/*------------------ Dashboard ------------------*/
+
+.dashboard{
+
+    width:90%;
+    margin:50px auto;
+
+}
+
+.dashboard h2{
+
+    text-align:center;
+    color:darkred;
+    margin-bottom:40px;
+    font-size:35px;
+
+}
+
+.cards{
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+
+}
+
+.card{
+
+    width:300px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,0.08);
+    transition:0.4s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.card h3{
+
+    color:darkred;
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    color:#666;
+    line-height:1.7;
+    margin-bottom:20px;
+
+}
+
+.card a{
+
+    text-decoration:none;
+
+}
+
+.card button{
+
+    padding:12px 25px;
+    border:none;
+    background:darkred;
+    color:white;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+
+}
+
+.card button:hover{
+
+    background:red;
+
+}
+
+
+/*------------------ Footer ------------------*/
+
+footer{
+
+    margin-top:60px;
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+
+}
+
+
+/*------------------ Responsive ------------------*/
+
+@media(max-width:768px){
+
+    .banner h1{
+
+        font-size:35px;
+
+    }
+
+    nav{
+
+        flex-direction:column;
+        gap:15px;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">Blood Bank</div>
+
+<div>
+
+<a href="/home">Home</a>
+<a href="/login">Logout</a>
+
+</div>
+
+</nav>
+
+
+
+<!-- Welcome Banner -->
+
+<section class="banner">
+
+<h1>Welcome Donor!</h1>
+
+<p>
+Thank you for being a lifesaver. Your blood donation can make
+a difference and help save someone's life. Manage all your
+activities from your dashboard.
+</p>
+
+</section>
+
+
+
+<!-- Dashboard Cards -->
+
+<section class="dashboard">
+
+<h2>Donor Services</h2>
+
+<div class="cards">
+
+
+<!-- View Requests -->
+
+<div class="card">
+
+<h3>View Requests</h3>
+
+<p>
+Check blood requests received from recipients.
+</p>
+
+<a href="/view_request">
+<button>View</button>
+</a>
+
+</div>
+
+
+<!-- Donate Blood -->
+
+<div class="card">
+
+<h3>Donate Blood</h3>
+
+<p>
+Update your latest blood donation details.
+</p>
+
+<a href="/donate_blood">
+<button>Donate</button>
+</a>
+
+</div>
+
+
+<!-- Donation History -->
+
+<div class="card">
+
+<h3>Donation History</h3>
+
+<p>
+View all your previous blood donation records.
+</p>
+
+<a href="/view_donation_history">
+<button>View History</button>
+</a>
+
+</div>
+
+
+<!-- Notifications -->
+
+<div class="card">
+
+<h3>Notifications</h3>
+
+<p>
+Receive important notifications from blood banks.
+</p>
+
+<a href="/view_notification">
+<button>View Notifications</button>
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+Blood Bank Management System © 2026 | Every Donation Saves Lives.
+</p>
+
+</footer>
+
+
+</body>
+</html>
+

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipient Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background-color:#f5f5f5;
+}
+
+
+/* NAVBAR */
+
+nav{
+
+    width:100%;
+    background-color:darkred;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+
+}
+
+.logo{
+
+    font-size:30px;
+    font-weight:700;
+
+}
+
+.logout-btn{
+
+    text-decoration:none;
+    color:white;
+    border:2px solid white;
+    padding:10px 20px;
+    border-radius:30px;
+    transition:0.3s;
+
+}
+
+.logout-btn:hover{
+
+    background-color:white;
+    color:darkred;
+
+}
+
+
+/* WELCOME BANNER */
+
+.banner{
+
+    width:90%;
+    margin:40px auto;
+    padding:60px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#8B0000,#DC143C);
+    color:white;
+    text-align:center;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.1);
+
+}
+
+.banner h1{
+
+    font-size:48px;
+    margin-bottom:15px;
+
+}
+
+.banner p{
+
+    font-size:18px;
+    line-height:1.8;
+
+}
+
+
+
+/* RECIPIENT SERVICES */
+
+.services{
+
+    width:90%;
+    margin:50px auto;
+
+}
+
+.services h2{
+
+    text-align:center;
+    color:darkred;
+    font-size:38px;
+    margin-bottom:40px;
+
+}
+
+
+.service-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+
+}
+
+
+.service-card{
+
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+
+}
+
+
+.service-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+.service-card h3{
+
+    color:darkred;
+    margin-bottom:15px;
+    font-size:24px;
+
+}
+
+
+.service-card p{
+
+    color:#666;
+    line-height:1.8;
+    margin-bottom:25px;
+
+}
+
+
+.service-card button{
+
+    padding:12px 25px;
+    background-color:darkred;
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+
+}
+
+
+.service-card button:hover{
+
+    background-color:red;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+    background-color:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:60px;
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    nav{
+
+        flex-direction:column;
+        gap:15px;
+
+    }
+
+    .banner h1{
+
+        font-size:35px;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        Blood Bank Recipient
+    </div>
+
+    <a href="/login" class="logout-btn">
+        Logout
+    </a>
+
+</nav>
+
+
+
+<!-- WELCOME BANNER -->
+
+<section class="banner">
+
+    <h1>Welcome Recipient</h1>
+
+    <p>
+        Search for blood donors, request blood during emergencies,
+        view blood bank details and track the status of your requests
+        through our Blood Bank Management System.
+    </p>
+
+</section>
+
+
+
+<!-- RECIPIENT SERVICES -->
+
+<section class="services">
+
+    <h2>Recipient Services</h2>
+
+    <div class="service-container">
+
+
+        <!-- Search Blood Donor -->
+
+        <div class="service-card">
+
+            <h3>Search Blood Donor</h3>
+
+            <p>
+                Search registered blood donors based on blood group and location.
+            </p>
+
+            <a href="/search_donor">
+                <button>Open Module</button>
+            </a>
+
+        </div>
+
+
+
+        <!-- Request Blood -->
+
+        
+
+
+
+        <!-- View Blood Bank Details -->
+
+        <div class="service-card">
+
+            <h3>Blood Bank Details</h3>
+
+            <p>
+                View the details of registered blood banks and their contact information.
+            </p>
+
+            <a href="/view_blood_bank">
+                <button>Open Module</button>
+            </a>
+
+        </div>
+
+
+
+        <!-- Track Request -->
+
+        <div class="service-card">
+
+            <h3>Track Request</h3>
+
+            <p>
+                Track the status of your blood requests in real time.
+            </p>
+
+            <a href="/track_request">
+                <button>Open Module</button>
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        Blood Bank Management System © 2026 | Together We Save Lives.
+    </p>
+
+</footer>
+
+
+</body>
+</html>

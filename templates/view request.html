@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Blood Requests</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #f4f4f4;
+        }
+
+        .container{
+            width: 90%;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px lightgray;
+        }
+
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 30px;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th{
+            background-color: darkred;
+            color: white;
+            padding: 12px;
+        }
+
+        td{
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .accept-btn{
+            background-color: green;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .reject-btn{
+            background-color: crimson;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .accept-btn:hover{
+            background-color: darkgreen;
+        }
+
+        .reject-btn:hover{
+            background-color: darkred;
+        }
+         .home-btn{
+
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    padding:10px 20px;
+    background-color:darkred;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Blood Requests</h2>
+    <a href="/donor">
+    <button class="home-btn">Back Home</button>
+</a>
+
+
+    <table border='1' cellpading='10'>
+
+        <tr>
+            <th>Patient Name</th>
+            <th>Blood Group</th>
+            <th>Place</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+            <th>status</th>
+        </tr>
+
+        {% for request in ob %}
+
+        <tr>
+
+            <td>{{ request[2] }}</td>
+
+            <td>{{ request[3]  }}</td>
+
+            <td>{{ request[5]  }}</td>
+
+            <td>{{ request[6] }}</td>
+            <td>{{ request[7] }}</td>
+
+            <td>
+
+                <a href="/accept_request/{{ request[0]}}">
+                    <button class="accept-btn">
+                        Accept
+                    </button>
+                </a>
+
+                <a href="/reject_request/{{ request[0] }}">
+                    <button class="reject-btn">
+                        Reject
+                    </button>
+                </a>
+
+            </td>
+           
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

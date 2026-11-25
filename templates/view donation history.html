@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donation History</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 80%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px lightgray;
+        }
+
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 30px;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th{
+            background-color: darkred;
+            color: white;
+            padding: 12px;
+        }
+
+        td{
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid lightgray;
+        }
+
+        tr:hover{
+            background-color: #f9f9f9;
+        }
+         .home-btn{
+
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    padding:10px 20px;
+    background-color:darkred;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Donation History</h2>
+    <a href="/donor">
+    <button class="home-btn">Back Home</button>
+</a>
+
+
+    <table>
+
+        <tr>
+            <th>Donor Name</th>
+            <th>Donation Place</th>
+            <th>Hospital</th>
+            <th>Donation Date</th>
+            <th>Blood Group</th>
+            <th>Recipient Name</th>
+            <th>Quantity</th>
+
+        </tr>
+
+       {% for donate in ob%}
+        <tr>
+            <td>{{donate[0]}}</td>
+            <td>{{donate[1]}}</td>
+            <td>{{donate[2]}}</td>
+            <td>{{donate[3]}}</td>
+            <td>{{donate[4]}}</td>
+            <td>{{donate[5]}}</td>
+            <td>{{donate[6]}}</td>
+        </tr>
+
+      {%endfor%}
+
+    </table>    
+
+</div>
+
+</body>
+</html>

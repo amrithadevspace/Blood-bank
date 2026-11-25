@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Bank Management System</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f9fa;
+    overflow-x:hidden;
+}
+
+
+/*================ NAVBAR ================*/
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 3px 15px rgba(0,0,0,0.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    color:darkred;
+    font-size:30px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:darkred;
+}
+
+.login-btn{
+    padding:10px 25px;
+    background:darkred;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-3px);
+}
+
+
+
+.hero{
+
+    height:92vh;
+    background:
+    linear-gradient(rgba(120,0,0,.72),
+    rgba(120,0,0,.72)),
+    url("https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=1500&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:30px;
+
+    animation:fadeIn 1.5s ease;
+}
+
+.hero-content h1{
+
+    font-size:65px;
+    margin-bottom:20px;
+
+}
+
+.hero-content p{
+
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    font-size:20px;
+
+}
+
+.hero-buttons{
+
+    margin-top:35px;
+
+}
+
+.hero-buttons a{
+
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:50px;
+    margin:10px;
+    display:inline-block;
+    transition:.4s;
+
+}
+
+.btn1{
+
+    background:white;
+    color:darkred;
+    font-weight:600;
+
+}
+
+.btn2{
+
+    border:2px solid white;
+    color:white;
+
+}
+
+.hero-buttons a:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+.about{
+
+    width:85%;
+    margin:80px auto;
+    text-align:center;
+
+}
+
+.about h2{
+
+    color:darkred;
+    margin-bottom:25px;
+    font-size:40px;
+
+}
+
+.about p{
+
+    line-height:2;
+    color:#555;
+    font-size:18px;
+
+}
+
+
+
+
+.stats{
+
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    width:90%;
+    margin:70px auto;
+
+}
+
+.stat-card{
+
+    background:white;
+    width:260px;
+    padding:35px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,.08);
+    transition:.4s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.stat-card h1{
+
+    color:darkred;
+    font-size:45px;
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.features{
+
+    width:90%;
+    margin:80px auto;
+
+}
+
+.features h2{
+
+    text-align:center;
+    color:darkred;
+    margin-bottom:50px;
+    font-size:40px;
+
+}
+
+.feature-container{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+
+}
+
+.feature-card{
+
+    background:white;
+    width:330px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,.08);
+    transition:.4s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.feature-card h3{
+
+    color:darkred;
+    margin-bottom:15px;
+    font-size:24px;
+
+}
+
+.feature-card p{
+
+    color:#666;
+    line-height:1.8;
+
+}
+
+
+
+
+
+.choose{
+
+    width:85%;
+    margin:90px auto;
+    text-align:center;
+
+}
+
+.choose h2{
+
+    color:darkred;
+    margin-bottom:40px;
+    font-size:40px;
+
+}
+
+.choose-box{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+
+}
+
+.box{
+
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,.08);
+    transition:.4s;
+
+}
+
+.box:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+
+
+
+.cta{
+
+    margin-top:90px;
+    background:linear-gradient(135deg,darkred,red);
+    color:white;
+    text-align:center;
+    padding:80px 30px;
+
+}
+
+.cta h2{
+
+    font-size:42px;
+    margin-bottom:20px;
+
+}
+
+.cta p{
+
+    font-size:18px;
+    margin-bottom:30px;
+
+}
+
+.cta a{
+
+    background:white;
+    color:darkred;
+    padding:15px 35px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.4s;
+
+}
+
+.cta a:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+
+footer{
+
+    background:#111;
+    color:white;
+    padding:25px;
+    text-align:center;
+
+}
+
+
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+@media(max-width:768px){
+
+    nav{
+
+        flex-direction:column;
+        gap:20px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:42px;
+
+    }
+
+    .hero-content p{
+
+        font-size:16px;
+
+    }
+
+}
+ .home-btn{
+
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    padding:10px 20px;
+    background-color:darkred;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">Blood Bank</div>
+
+<ul>
+<li><a href="/home">Home</a></li>
+<li><a href="/login">Login</a></li>
+<li><a href="/register">Register</a></li>
+</ul>
+
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Donate Blood, Save Lives</h1>
+
+<p>
+A smart and secure Blood Bank Management System that connects
+donors, recipients and blood banks to make blood donation
+simple, faster and more accessible during emergencies.
+</p>
+
+<div class="hero-buttons">
+
+<a href="/login" class="btn1">Get started</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section class="about">
+
+<h2>About Our Project</h2>
+
+<p>
+Our Blood Bank Management System is developed to efficiently
+manage blood donations and blood requests. It provides an
+easy-to-use platform where donors can donate blood, recipients
+can find suitable donors, and blood bank administrators can
+manage blood stock and notifications seamlessly.
+</p>
+
+</section>
+
+
+
+<!-- STATISTICS -->
+
+<section class="stats">
+
+<div class="stat-card">
+<h1>24/7</h1>
+<p>Emergency Support</p>
+</div>
+
+<div class="stat-card">
+<h1>3</h1>
+<p>User Modules</p>
+</div>
+
+<div class="stat-card">
+<h1>100%</h1>
+<p>Secure Management</p>
+</div>
+
+</section>
+
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<h2>Our Features</h2>
+
+<div class="feature-container">
+
+<div class="feature-card">
+<h3>Blood Donation</h3>
+<p>
+Maintain donation history and contribute towards saving lives.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Find Blood Donors</h3>
+<p>
+Search blood donors based on blood group and location.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Track Requests</h3>
+<p>
+Recipients can track the status of blood requests easily.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Blood Stock Management</h3>
+<p>
+Blood banks can efficiently manage blood availability.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Instant Notifications</h3>
+<p>
+Receive important announcements and emergency notifications.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>User Friendly System</h3>
+<p>
+Simple, responsive and easy to use for every user.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- WHY CHOOSE US -->
+
+<section class="choose">
+
+<h2>Why Choose Us?</h2>
+
+<div class="choose-box">
+
+<div class="box">
+<h3>Fast Access</h3>
+<p>Quick access to blood donor information.</p>
+</div>
+
+<div class="box">
+<h3>Reliable Platform</h3>
+<p>Secure management of blood requests and donations.</p>
+</div>
+
+<div class="box">
+<h3>Emergency Ready</h3>
+<p>Designed to support urgent blood requirements.</p>
+</div>
+
+<div class="box">
+<h3>Easy Management</h3>
+<p>Centralized blood stock and notification management.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+
+<h2>Every Drop Counts!</h2>
+
+<p>
+Your one blood donation can save multiple lives. Join us today.
+</p>
+
+<a href="/register">Register Now</a>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+Blood Bank Management System © 2026 | Together We Save Lives.
+</p>
+
+</footer>
+
+</body>
+</html>
+```

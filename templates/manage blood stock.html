@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Blood Stock</title>
+
+    <style>
+
+        *{
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background-color:#f4f4f4;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:80%;
+            margin:50px auto;
+            background-color:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px lightgray;
+        }
+
+        h2{
+            text-align:center;
+            color:darkred;
+            margin-bottom:30px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background-color:darkred;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:15px;
+            text-align:center;
+            border-bottom:1px solid lightgray;
+        }
+
+        tr:hover{
+            background-color:#fff5f5;
+        }
+
+        .update-btn{
+
+            padding:8px 18px;
+            background-color:green;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+
+        }
+
+        .update-btn:hover{
+            background-color:darkgreen;
+        }
+
+        .add-btn{
+
+            padding:12px 25px;
+            background-color:darkred;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+
+        }
+
+        .add-btn:hover{
+            background-color:red;
+        }
+
+        .btn-section{
+
+            text-align:center;
+            margin-top:30px;
+
+        }
+
+        .home-btn{
+
+            position:absolute;
+            top:20px;
+            left:20px;
+
+            padding:10px 20px;
+            background-color:darkred;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+
+        }
+
+        .home-btn:hover{
+            background-color:red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<a href="/admin">
+    <button class="home-btn">
+        Back Home
+    </button>
+</a>
+
+
+<div class="container">
+
+    <h2>Manage Blood Stock</h2>
+
+
+    <!-- Blood Stock Table -->
+
+    <table>
+
+        <tr>
+
+            <th>Blood Group</th>
+            <th>Available Units</th>
+            <th>Action</th>
+
+        </tr>
+
+
+        {% for stock in ob %}
+
+        <tr>
+
+            <td>{{ stock[3] }}</td>
+
+            <td>{{ stock[2] }}</td>
+
+            <td>
+
+                <a href="/update_stock/{{ stock[0] }}">
+
+                    <button class="update-btn">
+                        Update
+                    </button>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+
+
+    <!-- Add Button -->
+
+    <div class="btn-section">
+
+        <a href="/add_stock">
+
+            <button class="add-btn">
+                Add Blood Stock
+            </button>
+
+        </a>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>

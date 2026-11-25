@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipient Registration</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 450px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px lightgray;
+        }
+
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 25px;
+        }
+
+        label{
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input, textarea{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+        }
+
+        textarea{
+            resize: none;
+        }
+
+        .btn{
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover{
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Recipient Registration</h2>
+
+    <form method="post">
+
+       
+         <label>Patient Name</label>
+        <input type="text"
+               name="name"
+               placeholder="Enter Patient Name"
+               required>
+
+        <label>Address</label>
+        <textarea name="address"
+                  rows="3"
+                  placeholder="Enter Your Address"
+                  required></textarea>
+
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               placeholder="Enter Your Email"
+               required>
+
+         <label>username</label>
+        <input type="text"
+               name="username"
+               placeholder="Enter username"
+               required>
+
+        <label>Password</label>
+        <input type="password"
+               name="password"
+               placeholder="Enter Password"
+               required>
+
+
+        <input type="submit"
+               value="Register"
+               class="btn">
+
+    </form>
+
+</div>
+
+</body>
+</html>
