@@ -1,55 +1,7 @@
 # 🩸 Blood Bank Management System
 
-## Project Overview
+The Blood Bank Management System is a web-based application developed using Python Flask to simplify blood donation and blood request operations. It provides a user-friendly platform for donors, recipients, and administrators with donor management, blood donor search, request processing, blood inventory management, and notification functionality.
 
-The **Blood Bank Management System** is a web-based application developed using Python Flask to simplify and streamline blood donation and blood request operations. The platform connects donors, recipients, and administrators through a centralized system, making blood donor management, request processing, and blood stock monitoring more efficient.
+**Features:** User Authentication | Donor Management | Recipient Management | Blood Donor Search | Blood Requests | Blood Inventory | Donation History | Notifications
 
-## Core Modules
-
-### 1. Donor Module
-- Secure donor registration and login
-- View available blood requests
-- Manage blood donation details
-- Update last donation date and location
-- View donation history
-- Receive notifications
-
-### 2. Recipient Module
-- Recipient registration and login
-- Search for blood donors
-- Submit blood requests
-- View blood bank details
-- Track blood request status
-
-### 3. Admin Module
-- Administrator login
-- Manage blood inventory
-- Add and update blood stock
-- Monitor blood requests
-- Send notifications
-
-## Key Highlights
-
-- Role-based access for donors, recipients, and administrators
-- Centralized donor and recipient management
-- Efficient blood request handling
-- Blood stock monitoring
-- Donation history management
-- Notification support
-
-## Technology Stack
-
-| Category | Technologies |
-|---|---|
-| Backend | Python, Flask |
-| Frontend | HTML5, CSS3, JavaScript |
-| Database | MySQL |
-
-## Project Objective
-
-To develop a reliable and user-friendly platform that improves communication between blood donors and recipients while helping administrators manage blood inventory and blood requests effectively.
-
-## Developer
-
-**Amritha**  
-Python Full Stack Developer
+**Tech Stack:** Python, Flask, HTML, CSS, JavaScript, MySQL
